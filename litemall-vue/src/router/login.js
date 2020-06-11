@@ -2,6 +2,10 @@ export default [
   {
     path: '/login',
     name: 'login',
+    meta: {
+      showHeader:false,
+      title:"登录"
+    },
     component: () => import('@/views/login/login')
   },
   {
@@ -10,8 +14,9 @@ export default [
     component: () => import('@/views/login/register-getCode')
   },
   {
-    path: '/login/registerSubmit',
+    path: '/login/registerSubmit/:phone',
     name: 'registerSubmit',
+    props: true,
     component: () => import('@/views/login/register-submit')
   },
   {

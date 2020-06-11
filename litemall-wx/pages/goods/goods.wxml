@@ -21,11 +21,11 @@
         </button>
         <button  class="savesharebtn" open-type="openSetting" bindopensetting="handleSetting" wx:if="{{(!isGroupon) && (!canWrite)}}" >
           <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>发朋友圈</view>
+          <view class='sharebtn_text'>生成海报</view>
         </button>
         <button class="savesharebtn" bindtap="saveShare" wx:if="{{!isGroupon && canWrite}}">
           <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>发朋友圈</view>
+          <view class='sharebtn_text'>生成海报</view>
         </button>
       </view>
     </view>
@@ -74,6 +74,10 @@
         </view>
         <view class="imgs" wx:if="{{item.picList.length > 0}}">
           <image class="img" wx:for="{{item.picList}}" wx:key="*this" wx:for-item="iitem" src="{{iitem}} "></image>
+        </view>
+        <view class="customer-service" wx:if="{{item.adminContent}}">
+          <text class="u">商家回复：</text>
+          <text class="c">{{item.adminContent}}</text>
         </view>
       </view>
     </view>
@@ -149,7 +153,7 @@
       <view class="spec-item" wx:for="{{specificationList}}" wx:key="name">
         <view class="name">{{item.name}}</view>
         <view class="values">
-          <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}" data-name="{{vitem.specification}}">{{vitem.value}}</view>
+          <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="id" data-value-id="{{vitem.id}}" data-name="{{vitem.specification}}">{{vitem.value}}</view>
         </view>
       </view>
 
